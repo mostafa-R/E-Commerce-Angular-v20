@@ -6,5 +6,5 @@ export interface IProducts {
   productImgUrl: string;
   categoryId: number;
   productDetails: string;
+  isPurchased?: boolean;
 }
-

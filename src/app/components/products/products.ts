@@ -8,15 +8,18 @@ import { IProducts } from '../../models/products';
   styleUrl: './products.css',
 })
 export class Products {
-  products: IProducts[];
+  ProductList: IProducts[] = [];
+
+  isPurchased: boolean = false;
+  clientName: string = 'ahmed';
   constructor() {
-    this.products = [
+    this.ProductList = [
       {
         productId: 1,
         productName: 'Apple iPhone 15',
         productImgUrl:
           'https://f.nooncdn.com/p/pnsku/N53432547A/45/_/1694762192/fd45d583-8af9-4ff3-8032-af4a5a3c553c.jpg?format=avif&wproductIdth=240',
-        productQuantity: 20,
+        productQuantity: 1,
         productPrice: 200,
         categoryId: 1,
         productDetails:
@@ -111,5 +114,25 @@ export class Products {
           'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ',
       },
     ];
+  }
+
+  buyProduct(product: IProducts) {
+    if (product.productQuantity > 0) {
+      product.productQuantity--;
+      product.isPurchased = true;
+    }
+  }
+
+  getQuantityStatus(quantity: number): string {
+    switch (quantity) {
+      case 0:
+        return 'Out of stock';
+      case 1:
+        return 'Last one item';
+      case 2:
+        return 'Last two items';
+      default:
+        return 'In stock';
+    }
   }
 }

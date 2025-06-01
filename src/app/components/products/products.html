@@ -1,15 +1,29 @@
 <div class="container">
   <div class="row">
-    @for(product of products ; track product) {
-    <div class="col-md-3 mt-5">
+    @for (product of ProductList; track product.productId) {
+    <div class="col-md-3 mt-3 col-sm-4">
       <div class="card" style="width: 18rem">
-        <img [src]="product.productImgUrl" class="card-img-top" alt="..." />
+        @if (!product.isPurchased) {
+        <img [src]="product.productImgUrl" class="card-img-top" alt="" />
+        } @if (product.isPurchased) {
+        <div class="thank-you">
+          Thanks for purchasing from our Store {{clientName}}
+        </div>
+        }
         <div class="card-body">
-          <h5 class="card-title">{{product.productName}}</h5>
-          <p class="card-text">{{product.productDetails}}</p>
-          <p>{{product.productQuantity}}</p>
-          <p>{{product.productPrice}}</p>
-          <a href="#" class="btn btn-primary">Buy</a>
+          <h5 class="card-title">{{ product.productName }}</h5>
+          <p class="card-text">Price: ${{ product.productPrice }}</p>
+          <p class="card-text">
+            Quantity: {{ product.productQuantity }} ({{
+            getQuantityStatus(product.productQuantity) }})
+          </p>
+          <button
+            class="btn btn-primary"
+            (click)="buyProduct(product)"
+            [disabled]="product.productQuantity === 0"
+          >
+            Buy
+          </button>
         </div>
       </div>
     </div>
