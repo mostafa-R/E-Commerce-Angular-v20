@@ -3,10 +3,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductCardDirective } from '../../directives/product-card';
 import { IProducts } from '../../models/products';
+import { CreditFormatPipe } from '../../Pipes/credit-format-pipe';
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule, FormsModule, ProductCardDirective, CurrencyPipe],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ProductCardDirective,
+    CurrencyPipe,
+    CreditFormatPipe,
+  ],
   templateUrl: './products.html',
   styleUrl: './products.css',
 })
@@ -18,7 +25,7 @@ export class Products {
 
   filteredProducts: IProducts[] = [];
   date: Date = new Date();
-  creditFormat: string = '0000-0000-0000-0000';
+  creditNumber: string = '1234567812345678';
 
   constructor() {
     this.ProductList = [
