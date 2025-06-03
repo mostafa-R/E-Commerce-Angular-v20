@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    @for (product of ProductList; track product.productId) {
+    @for (product of filteredProducts ; track product.productId) {
     <div class="col-md-3 mt-3 col-sm-4">
-      <div class="card" style="width: 18rem">
+      <div class="card" style="width: 18rem" appProductCard>
         @if (!product.isPurchased) {
         <img [src]="product.productImgUrl" class="card-img-top" alt="" />
         } @if (product.isPurchased) {
@@ -12,15 +12,33 @@
         }
         <div class="card-body">
           <h5 class="card-title">{{ product.productName }}</h5>
-          <p class="card-text">Price: ${{ product.productPrice }}</p>
-          <p class="card-text">
-            Quantity: {{ product.productQuantity }} ({{
-            getQuantityStatus(product.productQuantity) }})
-          </p>
+          <p class="card-text">Price: {{ product.productPrice | currency }}</p>
+          <div>
+            <div class="d-flex justify-content-between align-items-center">
+              <p
+                class="card-text"
+                [ngClass]="{ 'yellow-bg': product.productQuantity === 1 }"
+                [ngStyle]="{ 'background-color': product.productQuantity === 1 ? 'yellow' : '' }"
+              >
+                Quantity: {{ product.productQuantity }}
+              </p>
+
+              @switch (product.productQuantity) { @case(0){
+              <p class="card-text text-danger">Out of Stock</p>
+              } @case(1){
+              <p class="card-text text-warning">Last One Item</p>
+              } @case(2){
+              <p class="card-text text-warning">Last Two Items</p>
+              } @default{
+              <p class="card-text text-success">In Stock</p>
+              } }
+            </div>
+          </div>
           <button
             class="btn btn-primary"
             (click)="buyProduct(product)"
             [disabled]="product.productQuantity === 0"
+            (click)="addToCart(product)"
           >
             Buy
           </button>
@@ -29,4 +47,11 @@
     </div>
     }
   </div>
+</div>
+
+<div
+  class="container d-flex flex-row justify-content-around align-items-center"
+>
+  <input type="text" [value]="creditFormat" />
+  <p>{{date | date: "short"}}</p>
 </div>

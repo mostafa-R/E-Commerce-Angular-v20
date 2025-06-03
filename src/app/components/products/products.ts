@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { CommonModule, CurrencyPipe } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ProductCardDirective } from '../../directives/product-card';
 import { IProducts } from '../../models/products';
 
 @Component({
   selector: 'app-products',
-  imports: [],
+  imports: [CommonModule, FormsModule, ProductCardDirective, CurrencyPipe],
   templateUrl: './products.html',
   styleUrl: './products.css',
 })
@@ -12,6 +15,11 @@ export class Products {
 
   isPurchased: boolean = false;
   clientName: string = 'ahmed';
+
+  filteredProducts: IProducts[] = [];
+  date: Date = new Date();
+  creditFormat: string = '0000-0000-0000-0000';
+
   constructor() {
     this.ProductList = [
       {
@@ -30,7 +38,7 @@ export class Products {
         productName: 'Samsung Galaxy frontend ',
         productImgUrl:
           'https://f.nooncdn.com/p/pnsku/N70030440V/45/_/1702699238/6ae73ece-d29e-4a81-ba41-850055d0937f.jpg?format=avif&wproductIdth=240',
-        productQuantity: 20,
+        productQuantity: 3,
         productPrice: 200,
         categoryId: 2,
         productDetails:
@@ -114,25 +122,31 @@ export class Products {
           'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem  ',
       },
     ];
+    this.filteredProducts = this.ProductList;
   }
 
   buyProduct(product: IProducts) {
     if (product.productQuantity > 0) {
       product.productQuantity--;
-      product.isPurchased = true;
+      //product.isPurchased = true;
     }
   }
 
-  getQuantityStatus(quantity: number): string {
-    switch (quantity) {
-      case 0:
-        return 'Out of stock';
-      case 1:
-        return 'Last one item';
-      case 2:
-        return 'Last two items';
-      default:
-        return 'In stock';
-    }
+  @Input() set filterName(setValue: string) {
+    this.filteredProducts = this.doSearch(setValue);
+  }
+
+  doSearch(value: string): IProducts[] {
+    value = value.toLowerCase();
+    return this.ProductList.filter((pro: IProducts) => {
+      return pro.productName.toLowerCase().includes(value);
+    });
+  }
+
+  @Output() productProperty: EventEmitter<IProducts> =
+    new EventEmitter<IProducts>();
+  addToCart(product: IProducts) {
+    // console.log('Product added to cart:', product);
+    this.productProperty.emit(product);
   }
 }

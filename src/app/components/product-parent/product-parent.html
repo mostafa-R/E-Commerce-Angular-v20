@@ -1,0 +1,30 @@
+<div class="container">
+  <input type="search" class="form-control mt-3" [(ngModel)]="filterName" />
+
+  <app-products
+    [filterName]="filterName"
+    (productProperty)="addToCart($event)"
+  ></app-products>
+
+  <table class="table table-dark table-hover mt-4">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of productsListInParent; track item.productId) {
+
+      <tr>
+        <td>{{ item.productName }}</td>
+        <td>{{ item.productQuantity }}</td>
+        <td>{{ item.productPrice | currency }}</td>
+        <td>{{ item.productPrice * item.productQuantity | currency }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
