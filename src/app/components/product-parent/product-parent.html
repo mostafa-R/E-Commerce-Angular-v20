@@ -13,6 +13,7 @@
         <th>Quantity</th>
         <th>Price</th>
         <th>Total</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -23,6 +24,15 @@
         <td>{{ item.productQuantity }}</td>
         <td>{{ item.productPrice | currency }}</td>
         <td>{{ item.productPrice * item.productQuantity | currency }}</td>
+        <td>
+          <button
+            class="btn btn-primary"
+            (click)="deleteProduct(item)"
+            [disabled]="item.productQuantity===0"
+          >
+            <i class="fa-solid fa-trash"></i> delete
+          </button>
+        </td>
       </tr>
       }
     </tbody>

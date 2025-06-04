@@ -1,0 +1,84 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "لابتوب Dell XPS 13",
+      "price": 25000,
+      "category": "إلكترونيات",
+      "description": "لابتوب عالي الأداء مع معالج Intel Core i7",
+      "image": "https://via.placeholder.com/300x200/0066cc/ffffff?text=Dell+XPS+13",
+      "inStock": true,
+      "quantity": 15,
+      "brand": "Dell",
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "name": "هاتف iPhone 15 Pro",
+      "price": 45000,
+      "category": "هواتف",
+      "description": "أحدث هاتف من آبل مع كاميرا احترافية",
+      "image": "https://via.placeholder.com/300x200/ff6600/ffffff?text=iPhone+15+Pro",
+      "inStock": true,
+      "quantity": 8,
+      "brand": "Apple",
+      "rating": 4.8
+    },
+    {
+      "id": 3,
+      "name": "سماعات Sony WH-1000XM4",
+      "price": 8500,
+      "category": "صوتيات",
+      "description": "سماعات لاسلكية مع إلغاء الضوضاء",
+      "image": "https://via.placeholder.com/300x200/333333/ffffff?text=Sony+WH-1000XM4",
+      "inStock": true,
+      "quantity": 25,
+      "brand": "Sony",
+      "rating": 4.6
+    },
+    {
+      "id": 4,
+      "name": "ساعة Apple Watch Series 9",
+      "price": 15000,
+      "category": "إكسسوارات",
+      "description": "ساعة ذكية مع مراقبة الصحة",
+      "image": "https://via.placeholder.com/300x200/000000/ffffff?text=Apple+Watch+S9",
+      "inStock": false,
+      "quantity": 0,
+      "brand": "Apple",
+      "rating": 4.7
+    },
+    {
+      "id": 5,
+      "name": "جهاز PlayStation 5",
+      "price": 18000,
+      "category": "ألعاب",
+      "description": "جهاز ألعاب الجيل الجديد",
+      "image": "https://via.placeholder.com/300x200/0070d4/ffffff?text=PlayStation+5",
+      "inStock": true,
+      "quantity": 5,
+      "brand": "Sony",
+      "rating": 4.9
+    },
+    {
+      "id": 6,
+      "name": "تابلت iPad Pro 12.9",
+      "price": 35000,
+      "category": "تابلت",
+      "description": "تابلت احترافي للعمل والإبداع",
+      "image": "https://via.placeholder.com/300x200/silver/000000?text=iPad+Pro",
+      "inStock": true,
+      "quantity": 12,
+      "brand": "Apple",
+      "rating": 4.4
+    }
+  ],
+  "categories": [
+    { "id": 1, "name": "إلكترونيات" },
+    { "id": 2, "name": "هواتف" },
+    { "id": 3, "name": "صوتيات" },
+    { "id": 4, "name": "إكسسوارات" },
+    { "id": 5, "name": "ألعاب" },
+    { "id": 6, "name": "تابلت" }
+  ]
+}

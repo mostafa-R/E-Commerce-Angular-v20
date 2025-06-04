@@ -34,14 +34,21 @@
               } }
             </div>
           </div>
-          <button
-            class="btn btn-primary"
-            (click)="buyProduct(product)"
-            [disabled]="product.productQuantity === 0"
-            (click)="addToCart(product)"
-          >
-            Buy
-          </button>
+          <div class="d-flex justify-content-between align-items-center">
+            <button
+              class="btn btn-primary"
+              (click)="buyProduct(product)"
+              [disabled]="product.productQuantity === 0"
+              (click)="addToCart(product)"
+            >
+              Buy
+            </button>
+            <a
+              [routerLink]="['/product', product.productId]"
+              class="btn btn-success"
+              >Details</a
+            >
+          </div>
         </div>
       </div>
     </div>

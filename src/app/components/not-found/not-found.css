@@ -1,0 +1,27 @@
+@mixin boxShadow($colour, $length) {
+  $value: ();
+  @for $i from 1 through $length {
+    $px: $i + px;
+    $value: append($value, $px $px $colour, comma);
+  }
+  text-shadow: $value;
+}
+
+h1 {
+  text-align: center;
+  font-size: 15em;
+
+  @include boxShadow(rgba(67, 155, 251), 50);
+}
+
+body {
+  background-color: #007aff;
+  color: #fff;
+  line-height: 1.5;
+  font-family: sans-serif;
+}
+
+p {
+  font-size: 2em;
+  text-align: center;
+}

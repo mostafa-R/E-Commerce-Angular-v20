@@ -30,4 +30,16 @@ export class ProductParent {
     // console.log('Total price:', totalPrice);
     // console.log(this.productsListInParent);
   }
+
+  deleteProduct(item: IProducts) {
+    const index = this.productsListInParent.findIndex(
+      (p) => p.productId === item.productId
+    );
+    if (this.productsListInParent[index].productQuantity > 1) {
+      this.productsListInParent[index].productQuantity--;
+    } else if (index > -1) {
+      this.productsListInParent.splice(index, 1);
+    }
+    console.log('Product removed from cart:', this.productsListInParent);
+  }
 }
