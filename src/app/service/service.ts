@@ -5,7 +5,7 @@ import { IProducts } from '../models/products';
   providedIn: 'root',
 })
 export class Service {
-  productInService: IProducts[];
+  productInService!: IProducts[];
   constructor() {
     this.productInService = [
       {
@@ -114,18 +114,16 @@ export class Service {
     return this.productInService;
   }
 
- 
   getProductByID(prodID: number): IProducts | undefined {
     return this.productInService.find(
       (product) => product.productId === prodID
     );
   }
 
-
   doSearch(value: string): IProducts[] {
-      value = value.toLowerCase();
-      return this.productInService.filter((pro: IProducts) => {
-        return pro.productName.toLowerCase().includes(value);
-      });
-    }
+    value = value.toLowerCase();
+    return this.productInService.filter((pro: IProducts) => {
+      return pro.productName.toLowerCase().includes(value);
+    });
+  }
 }

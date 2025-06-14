@@ -30,6 +30,10 @@ export class DetailsComponent implements OnInit {
     this.productIds = this.productFromService
       .getProducts()
       .map((item) => item.productId);
+    //update snapshot
+    // this.route.snapshot.paramMap.subscribe((params) => {
+
+    // })
 
     this.route.paramMap.subscribe((params) => {
       const id = Number(params.get('id'));

@@ -32,22 +32,24 @@
   </div>
 </div>
 
-<div class="d-flex justify-content-between gap-2 mt-4">
-  <a
-    [hidden]="currentIndex == 0"
+<div class="d-flex justify-content-around mt-5">
+  <button
+    [disabled]="currentIndex == productIds[0]"
     (click)="prev()"
-    class="btn btn-outline-primary d-flex align-items-center"
+    class="btn btn-primary"
   >
     <i class="bi bi-arrow-left"></i>
     <span class="ms-2 fw-bold">Back</span>
-  </a>
+  </button>
 
-  <a
-    [hidden]="currentIndex == productIds.length - 1"
+  <button
+    [disabled]="currentIndex == productIds.length - 1"
     (click)="next()"
-    class="btn btn-outline-primary d-flex align-items-center"
+    class="btn btn-primary"
   >
     <span class="me-2 fw-bold">Next</span>
     <i class="bi bi-arrow-right"></i>
-  </a>
+  </button>
 </div>
+
+<a class="btn btn-dark ms-4" routerLink="/products">Back to Products</a>

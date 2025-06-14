@@ -1,11 +1,18 @@
 import { CommonModule, CurrencyPipe } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ProductCardDirective } from '../../directives/product-card';
 import { IProducts } from '../../models/products';
 import { CreditFormatPipe } from '../../Pipes/credit-format-pipe';
 import { Service } from '../../service/service';
+import { ProductsApi } from './../../service/products-api';
 
 @Component({
   selector: 'app-products',
@@ -31,7 +38,11 @@ export class Products {
   date: Date = new Date();
   creditNumber: string = '1234567812345678';
 
-  constructor(private productFromService: Service) {
+  constructor(
+    private productFromService: Service,
+    private ProductsApi: ProductsApi,
+    private cdr: ChangeDetectorRef
+  ) {
     // this.ProductList = [
     //   {
     //     productId: 1,
@@ -134,6 +145,18 @@ export class Products {
     //   },
     // ];
     this.filteredProducts = this.productFromService.getProducts();
+    // console.log(this.filteredProducts);
+
+    this.ProductsApi.getProducts().subscribe({
+      next: (data) => {
+        this.filteredProducts = data;
+        this.cdr.detectChanges();
+        console.log(this.filteredProducts);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
     console.log(this.filteredProducts);
   }
 
@@ -147,13 +170,6 @@ export class Products {
   @Input() set filterName(setValue: string) {
     this.filteredProducts = this.productFromService.doSearch(setValue);
   }
-
-  // doSearch(value: string): IProducts[] {
-  //   value = value.toLowerCase();
-  //   return this.ProductList.filter((pro: IProducts) => {
-  //     return pro.productName.toLowerCase().includes(value);
-  //   });
-  // }
 
   @Output() productProperty: EventEmitter<IProducts> =
     new EventEmitter<IProducts>();
