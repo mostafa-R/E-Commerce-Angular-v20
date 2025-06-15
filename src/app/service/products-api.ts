@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { IProducts } from '../models/products';
 
 @Injectable({
@@ -22,5 +22,10 @@ export class ProductsApi {
     return this.http.get<IProducts[]>(
       `http://localhost:3000/products?product=${value}`
     );
+  }
+
+  getAllIds(): Observable<number[]> {
+ 
+    return this.getProducts().pipe(map((prd) => prd.map((prd2) => prd2.productId)));
   }
 }
