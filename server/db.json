@@ -83,11 +83,53 @@
     }
   ],
   "categories": [
-    { "id": 1, "name": "إلكترونيات" },
-    { "id": 2, "name": "هواتف" },
-    { "id": 3, "name": "صوتيات" },
-    { "id": 4, "name": "إكسسوارات" },
-    { "id": 5, "name": "ألعاب" },
-    { "id": 6, "name": "تابلت" }
+    {
+      "id": 1,
+      "name": "إلكترونيات"
+    },
+    {
+      "id": 2,
+      "name": "هواتف"
+    },
+    {
+      "id": 3,
+      "name": "صوتيات"
+    },
+    {
+      "id": 4,
+      "name": "إكسسوارات"
+    },
+    {
+      "id": 5,
+      "name": "ألعاب"
+    },
+    {
+      "id": 6,
+      "name": "تابلت"
+    }
+  ],
+  "users": [
+    {
+      "id": "ffda",
+      "firstName": "asda",
+      "lastName": "dasdas",
+      "email": "dasdas",
+      "password": "asddas",
+      "address": "asdda",
+      "mobiles": [
+        ""
+      ]
+    },
+    {
+      "id": "b174",
+      "firstName": "dsadas",
+      "lastName": "dasdas",
+      "email": "sadasd",
+      "password": "dasdasdas",
+      "address": "asdasd",
+      "mobiles": [
+        "01598789789"
+      ]
+    }
   ]
 }
