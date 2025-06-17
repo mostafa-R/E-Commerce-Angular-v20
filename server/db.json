@@ -7,7 +7,8 @@
       "productQuantity": 0,
       "productPrice": 200,
       "categoryId": 1,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem"
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem",
+      "id": "e016"
     },
     {
       "productId": 2,
@@ -16,7 +17,8 @@
       "productQuantity": 20,
       "productPrice": 200,
       "categoryId": 2,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem"
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem",
+      "id": "cfb1"
     },
     {
       "productId": 3,
@@ -25,7 +27,8 @@
       "productQuantity": 0,
       "productPrice": 200,
       "categoryId": 1,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem"
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem",
+      "id": "139f"
     },
     {
       "productId": 4,
@@ -34,7 +37,8 @@
       "productQuantity": 1,
       "productPrice": 200,
       "categoryId": 2,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem"
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem",
+      "id": "5a37"
     },
     {
       "productId": 5,
@@ -43,7 +47,8 @@
       "productQuantity": 20,
       "productPrice": 200,
       "categoryId": 2,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem"
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem",
+      "id": "c9d1"
     },
     {
       "productId": 6,
@@ -52,7 +57,8 @@
       "productQuantity": 20,
       "productPrice": 200,
       "categoryId": 2,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem"
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem",
+      "id": "a2c2"
     },
     {
       "productId": 7,
@@ -61,7 +67,8 @@
       "productQuantity": 20,
       "productPrice": 200,
       "categoryId": 3,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem"
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem",
+      "id": "605e"
     },
     {
       "productId": 8,
@@ -70,41 +77,47 @@
       "productQuantity": 20,
       "productPrice": 200,
       "categoryId": 1,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem"
+      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem",
+      "id": "4c16"
     },
     {
-      "productId": 9,
       "productName": "iphone",
-      "productImgUrl": "https://f.nooncdn.com/p/v1640152217/N52217824A_1.jpg?format=avif&wproductIdth=240",
-      "productQuantity": 20,
       "productPrice": 200,
-      "categoryId": 1,
-      "productDetails": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem lorem lorem"
+      "productQuantity": 20,
+      "categoryId": "2",
+      "id": "c7b2"
+    },
+    {
+      "id": "ab65",
+      "productName": "sad",
+      "productPrice": 4,
+      "productQuantity": 4,
+      "categoryId": "3"
     }
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "إلكترونيات"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "هواتف"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "صوتيات"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "إكسسوارات"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "ألعاب"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "تابلت"
     }
   ],
@@ -130,6 +143,18 @@
       "mobiles": [
         "01598789789"
       ]
+    },
+    {
+      "id": "b6b8",
+      "fullName": "ddd",
+      "email": "ddd",
+      "password": "ddd"
+    },
+    {
+      "id": "a4b2",
+      "fullName": "saa",
+      "email": "sa",
+      "password": "sasa"
     }
   ]
 }

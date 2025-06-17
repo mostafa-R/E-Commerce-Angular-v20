@@ -31,9 +31,25 @@
           routerLinkActive="active">About us</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link"  routerLink="/insertproduct"
+          routerLinkActive="active">insert product</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link"  routerLink="/register"
           routerLinkActive="active">New User</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/signup">Admin</a>
+        </li>
+        <li *ngIf="(isLoggedIn$ | async); else loginLink" class="nav-item">
+          <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+        </li>
+
+        <ng-template #loginLink>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary" routerLink="/login">Login</a>
+          </li>
+        </ng-template>
       </ul>
       <form class="d-flex" role="search">
         <input

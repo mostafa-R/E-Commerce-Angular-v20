@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <h3>{{ isEditMode ? 'Edit Product' : 'Insert New Product' }}</h3>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label>Product Name</label>
+      <input class="form-control" formControlName="productName" />
+    </div>
+
+    <div class="mb-3">
+      <label>Image URL</label>
+      <input class="form-control" formControlName="productImgUrl" />
+    </div>
+
+    <div class="mb-3">
+      <label>Price</label>
+      <input type="number" class="form-control" formControlName="productPrice" />
+    </div>
+
+    <div class="mb-3">
+      <label>Quantity</label>
+      <input type="number" class="form-control" formControlName="productQuantity" />
+    </div>
+
+    <div class="mb-3">
+      <label>Category</label>
+      <select class="form-control" formControlName="categoryId">
+        <option *ngFor="let cat of categories" [value]="cat.id">
+          {{ cat.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label>Details</label>
+      <textarea class="form-control" formControlName="productDetails"></textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">
+      {{ isEditMode ? 'Update Product' : 'Add Product' }}
+    </button>
+  </form>
+</div>

@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 import { ProductCardDirective } from '../../directives/product-card';
 import { IProducts } from '../../models/products';
 import { CreditFormatPipe } from '../../Pipes/credit-format-pipe';
+import { ProductService } from '../../service/productservices';
 import { Service } from '../../service/service';
 import { ProductsApi } from './../../service/products-api';
 
@@ -38,11 +39,13 @@ export class Products implements OnInit {
   filteredProducts: IProducts[] | undefined;
   date: Date = new Date();
   creditNumber: string = '1234567812345678';
+  products: any;
 
   constructor(
     private productFromService: Service,
     private ProductsApi: ProductsApi,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private ProductService: ProductService
   ) {}
 
   ngOnInit(): void {
@@ -83,4 +86,12 @@ export class Products implements OnInit {
     // console.log('Product added to cart:', product);
     this.productProperty.emit(product);
   }
+
+  // deleteProduct(id: string) {
+  //   if (confirm('هل أنت متأكد أنك تريد حذف هذا المنتج؟')) {
+  //     this.productService.deleteProduct(id).subscribe(() => {
+  //       this.products = this.products.filter((p) => p.id !== id);
+  //     });
+  //   }
+  // }
 }
